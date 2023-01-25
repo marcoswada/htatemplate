@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="x-ua-compatible" content="ie=9">
+  <HTA:APPLICATION ID="oHTA"
+     APPLICATIONNAME="myApp"
+     BORDER="thin"
+     BORDERSTYLE="normal"
+     CAPTION="yes"
+     ICON=""
+     MAXIMIZEBUTTON="yes"
+     MINIMIZEBUTTON="yes"
+     SHOWINTASKBAR="no"
+     SINGLEINSTANCE="no"
+     SYSMENU="yes"
+     VERSION="1.0"
+     WINDOWSTATE="maximize" />
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1024, initial-scale=1.0">
+    <title>Teste - CSS</title>
+    <style>
+        #txtField1 {
+            background-color: azure;
+            border-radius: 22px;
+            height: 44px;
+            width: 200px;
+            padding-left: 40px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: x-large;
+        }
+    </style>
+    <SCRIPT language="vbscript">
+      sub vbsExcelAutomation()
+        ' Launch Excel
+        dim app
+        set app = createobject("Excel.Application")
+
+        ' Make it visible
+        app.Visible = true
+
+        ' Add a new workbook
+        dim wb
+        set wb = app.workbooks.add
+
+        ' Fill array of values first...
+        dim arr(19,9) ' Note: VBScript is zero-based
+        for i = 1 to 20
+          for j = 1 to 10
+            arr(i-1,j-1) = i*j
+          next
+        next
+
+        ' Declare a range object to hold our data
+        dim rng
+        set rng = wb.Activesheet.Range("A1").Resize(20,10)
+
+        ' Now assign them all in one shot...
+        rng.value = arr
+
+        ' Add a new chart based on the data
+        wb.Charts.Add
+        wb.ActiveChart.ChartType = 70 'xl3dPieExploded
+        wb.ActiveChart.SetSourceData rng, 2 ' xlColumns
+        wb.ActiveChart.Location 2, "Sheet1" 'xlLocationAsObject
+
+        ' Rotate it around...
+        for i = 1 to 360 step 30
+          wb.activechart.rotation = i
+        next
+
+        ' Give the user control of Excel
+        app.UserControl = true
+      end sub
+
+      sub testvbs1()
+        MsgBox "testvbs1()"
+      end sub
+      Function testvbs2()
+        MsgBox "testvbs2()"
+      end Function
+    </SCRIPT>
+    <SCRIPT language="javascript">
+      function testjs() {
+        alert("testjs()");
+      }
+      function jsExcelAutomation() {
+        var app = new ActiveXObject("Excel.Application");
+        app.Visible = true;
+        var wb = app.workbooks.add();
+        var rng = wb.activeSheet.Range("A1").Resize(20,10);
+
+        for(var i=0;i<20;i++) {
+          for(var j=0;j<10;j++) {
+            wb.ActiveSheet.Cells(i+1, j+1)=((i+1)*(j+1));
+          }
+        }
+        wb.Charts.Add();
+        wb.ActiveChart.ChartType=70; // xl3dPieExploded
+        wb.ActiveChart.SetSourceData(rng, 2); // xlColumns
+        wb.ActiveChart.Location(2, "Sheet1"); // xlLocationsAsObject
+
+        for (var i=1;i<=360;i+=30) {
+          wb.ActiveChart.rotation=i;
+        }
+        app.UserControl = true;
+      }
+    </SCRIPT>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Brand</a>
+      </div>
+  
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <!--
+          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Link</a></li>
+          -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Languages <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a onClick="testjs()" href="#">JavaScript alert</a></li>
+              <li><a onClick="testvbs1()" href="#">VBScript Sub (MsgBox)</a></li>
+              <li><a onClick="testvbs2()" href="#">VBScript Function (MsgBox)</a></li>
+
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-certificate"></span>JavaScript <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a onClick="jsExcelAutomation()" href="#">Excel Automation</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">DBE-CreateDB</a></li>
+              <li><a href="#">ADODB-MDB Driver</a></li>
+              <li><a href="#">ADODB-ACCDB Driver</a></li>
+              <li><a href="#">ADODB-Oracle Driver</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Glyphicons</a></li>
+              <li role="separator" class="divider"></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-certificate"></span>VBScript <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a onClick="vbsExcelAutomation()" href="#">Excel Automation</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">DBE-CreateDB</a></li>
+              <li><a href="#">ADODB-MDB Driver</a></li>
+              <li><a href="#">ADODB-ACCDB Driver</a></li>
+              <li><a href="#">ADODB-Oracle Driver</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Glyphicons</a></li>
+              <li role="separator" class="divider"></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <input type="text" name="txtField1" id="txtField1" placeholder="Placeholder">
+
+
+  <script src="bootstrap-3.3.7-dist/popper.min.js"></script>
+  <script src="bootstrap-3.3.7-dist/jquery-3.6.1.js"></script>
+  <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+</body>
+</html>
