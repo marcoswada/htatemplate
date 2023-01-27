@@ -2,29 +2,29 @@
 <html lang="en">
 <head>
   <meta http-equiv="x-ua-compatible" content="ie=9">
+  <title>Teste - CSS</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <HTA:APPLICATION ID="oHTA"
      APPLICATIONNAME="myApp"
-     BORDER="thin"
+     BORDER="thick"
      BORDERSTYLE="normal"
      CAPTION="yes"
      ICON=""
      MAXIMIZEBUTTON="yes"
      MINIMIZEBUTTON="yes"
-     SHOWINTASKBAR="no"
-     SINGLEINSTANCE="no"
+     SHOWINTASKBAR="yes"
+     SINGLEINSTANCE="yes"
      SYSMENU="yes"
      VERSION="1.0"
      WINDOWSTATE="maximize" />
 
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=1024, initial-scale=1.0">
-    <title>Teste - CSS</title>
+
     <style>
         #txtField1 {
             background-color: azure;
@@ -69,6 +69,8 @@
         wb.ActiveChart.ChartType = 70 'xl3dPieExploded
         wb.ActiveChart.SetSourceData rng, 2 ' xlColumns
         wb.ActiveChart.Location 2, "Sheet1" 'xlLocationAsObject
+        
+        wb.windows(1).windowstate=-4137
 
         ' Rotate it around...
         for i = 1 to 360 step 30
@@ -199,7 +201,7 @@
 
 
   <script src="bootstrap-3.3.7-dist/popper.min.js"></script>
-  <script src="bootstrap-3.3.7-dist/jquery-3.6.1.js"></script>
+  <script src="jquery-3.6.3.js"></script>
   <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 </body>
 </html>

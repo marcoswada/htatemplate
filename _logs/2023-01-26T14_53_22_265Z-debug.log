@@ -1,0 +1,36 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\Marcos Wada\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'i',
+1 verbose cli   '@popper/core'
+1 verbose cli ]
+2 info using npm@6.14.10
+3 info using node@v12.18.2
+4 verbose config Skipping project config: C:\Users\Marcos Wada/.npmrc. (matches userconfig)
+5 verbose npm-session 66fe39506200693f
+6 silly install loadCurrentTree
+7 silly install readLocalPackageData
+8 http fetch GET 404 https://registry.npmjs.org/@popper%2fcore 739ms
+9 http fetch GET 404 https://registry.npmjs.org/@popper%2fcore 611ms
+10 silly fetchPackageMetaData error for @popper/core@latest 404 Not Found - GET https://registry.npmjs.org/@popper%2fcore - Not found
+11 timing stage:rollbackFailedOptional Completed in 1ms
+12 timing stage:runTopLevelLifecycles Completed in 1416ms
+13 verbose stack Error: 404 Not Found - GET https://registry.npmjs.org/@popper%2fcore - Not found
+13 verbose stack     at C:\Users\Marcos Wada\AppData\Roaming\npm\node_modules\npm\node_modules\npm-registry-fetch\check-response.js:117:15
+13 verbose stack     at processTicksAndRejections (internal/process/task_queues.js:97:5)
+14 verbose statusCode 404
+15 verbose pkgid @popper/core@latest
+16 verbose cwd C:\Users\Marcos Wada\htatemplate
+17 verbose Windows_NT 10.0.22000
+18 verbose argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\Marcos Wada\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "i" "@popper/core"
+19 verbose node v12.18.2
+20 verbose npm  v6.14.10
+21 error code E404
+22 error 404 Not Found - GET https://registry.npmjs.org/@popper%2fcore - Not found
+23 error 404
+24 error 404 '@popper/core@latest' is not in the npm registry.
+25 error 404 You should bug the author to publish it (or use the name yourself!)
+26 error 404 Note that you can also install from a
+27 error 404 tarball, folder, http url, or git url.
+28 verbose exit [ 1, true ]
