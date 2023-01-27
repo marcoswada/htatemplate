@@ -1,4 +1,5 @@
 bootstrap-3.3.7-dist/*
-jquery-3.6.3.min.js
-jquery-3.6.3.js
-popper.min.js
+jquery*.js
+popper*.js
+_cacache/*
+_logs/*

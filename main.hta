@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta http-equiv="x-ua-compatible" content="ie=9">
-  <title>Teste - CSS</title>
+  <title>HTA Template</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,84 +36,6 @@
             font-size: x-large;
         }
     </style>
-    <SCRIPT language="vbscript">
-      sub vbsExcelAutomation()
-        ' Launch Excel
-        dim app
-        set app = createobject("Excel.Application")
-
-        ' Make it visible
-        app.Visible = true
-
-        ' Add a new workbook
-        dim wb
-        set wb = app.workbooks.add
-
-        ' Fill array of values first...
-        dim arr(19,9) ' Note: VBScript is zero-based
-        for i = 1 to 20
-          for j = 1 to 10
-            arr(i-1,j-1) = i*j
-          next
-        next
-
-        ' Declare a range object to hold our data
-        dim rng
-        set rng = wb.Activesheet.Range("A1").Resize(20,10)
-
-        ' Now assign them all in one shot...
-        rng.value = arr
-
-        ' Add a new chart based on the data
-        wb.Charts.Add
-        wb.ActiveChart.ChartType = 70 'xl3dPieExploded
-        wb.ActiveChart.SetSourceData rng, 2 ' xlColumns
-        wb.ActiveChart.Location 2, "Sheet1" 'xlLocationAsObject
-        
-        wb.windows(1).windowstate=-4137
-
-        ' Rotate it around...
-        for i = 1 to 360 step 30
-          wb.activechart.rotation = i
-        next
-
-        ' Give the user control of Excel
-        app.UserControl = true
-      end sub
-
-      sub testvbs1()
-        MsgBox "testvbs1()"
-      end sub
-      Function testvbs2()
-        MsgBox "testvbs2()"
-      end Function
-    </SCRIPT>
-    <SCRIPT language="javascript">
-      function testjs() {
-        alert("testjs()");
-      }
-      function jsExcelAutomation() {
-        var app = new ActiveXObject("Excel.Application");
-        app.Visible = true;
-        var wb = app.workbooks.add();
-        var rng = wb.activeSheet.Range("A1").Resize(20,10);
-
-        for(var i=0;i<20;i++) {
-          for(var j=0;j<10;j++) {
-            wb.ActiveSheet.Cells(i+1, j+1)=((i+1)*(j+1));
-          }
-        }
-        wb.Charts.Add();
-        wb.ActiveChart.ChartType=70; // xl3dPieExploded
-        wb.ActiveChart.SetSourceData(rng, 2); // xlColumns
-        wb.ActiveChart.Location(2, "Sheet1"); // xlLocationsAsObject
-
-        for (var i=1;i<=360;i+=30) {
-          wb.ActiveChart.rotation=i;
-        }
-        app.UserControl = true;
-      }
-    </SCRIPT>
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -150,7 +72,7 @@
             <ul class="dropdown-menu">
               <li><a onClick="jsExcelAutomation()" href="#">Excel Automation</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#">DBE-CreateDB</a></li>
+              <li><a onClick="jsDBECreateDB()" href="#">DBE-CreateDB</a></li>
               <li><a href="#">ADODB-MDB Driver</a></li>
               <li><a href="#">ADODB-ACCDB Driver</a></li>
               <li><a href="#">ADODB-Oracle Driver</a></li>
@@ -164,10 +86,11 @@
             <ul class="dropdown-menu">
               <li><a onClick="vbsExcelAutomation()" href="#">Excel Automation</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#">DBE-CreateDB</a></li>
+              <li><a onClick="vbsDBECreateDB()" href="#">DBE-CreateDB</a></li>
               <li><a href="#">ADODB-MDB Driver</a></li>
               <li><a href="#">ADODB-ACCDB Driver</a></li>
               <li><a href="#">ADODB-Oracle Driver</a></li>
+              <li><a href="#" onClick='listTables()'>ADODB-List tables</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="#">Glyphicons</a></li>
               <li role="separator" class="divider"></li>
@@ -196,10 +119,18 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+  <main>
+    <div id="divDisplay">
 
-  <input type="text" name="txtField1" id="txtField1" placeholder="Placeholder">
-
-
+      <input type="text" name="txtField1" id="txtField1" placeholder="Placeholder">
+      
+      
+    </div>
+  </main>
+  <SCRIPT src="generic.vbs" language="vbscript"></SCRIPT>
+  <SCRIPT src="adodb.vbs" language="vbscript"></SCRIPT>
+  <SCRIPT src="generic.js" language="javascript"></SCRIPT>
+  <SCRIPT src="adodb.js" language="javascript"></SCRIPT>
   <script src="bootstrap-3.3.7-dist/popper.min.js"></script>
   <script src="jquery-3.6.3.js"></script>
   <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
